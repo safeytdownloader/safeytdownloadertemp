@@ -1,0 +1,128 @@
+<header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                        <i class="fab fa-youtube text-white text-4xl sm:text-5xl"></i>
+                        <div class="absolute w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full"></div>
+                        <i class="fas fa-download absolute text-red-600 text-xs sm:text-sm"></i>
+                    </div>
+                    <h1 class="text-lg sm:text-2xl font-bold">SafeYTDownloader</h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="/static/en/FAQ.html" class="text-white hover:text-gray-200 transition">FAQ</a>
+                    <div class="relative">
+                        <button onclick="toggleDropdown(this)" class="text-white hover:text-gray-200 transition flex items-center">
+                            Help <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute hidden dropdown-menu bg-white text-gray-800 rounded shadow-lg mt-2 w-40 z-20 right-0">
+                            <a href="/static/en/android.html" class="block px-4 py-2 hover:bg-gray-100">Android</a>
+                            <a href="/static/en/iphone.html" class="block px-4 py-2 hover:bg-gray-100">iPhone</a>
+                            <a href="/static/en/pc.html" class="block px-4 py-2 hover:bg-gray-100">PC</a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <button onclick="toggleDropdown(this)" class="text-white hover:text-gray-200 transition flex items-center">
+                            <i class="fas fa-globe mr-1"></i> English <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute hidden dropdown-menu bg-white text-gray-800 rounded shadow-lg mt-2 w-48 max-h-96 overflow-y-auto z-20 right-0">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">English</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">中文 (Chinese)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Español (Spanish)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">українська (Ukrainian)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">हिन्दी (Hindi)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">العربية (Arabic)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Português (Portuguese)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">বাংলা (Bengali)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Русский (Russian)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">日本語 (Japanese)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Punjabi</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Deutsch (German)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Javanese</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Français (French)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Telugu</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Marathi</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Türkçe (Turkish)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tamil</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Urdu</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Italiano (Italian)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">한국어 (Korean)</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Nederlands (Dutch)</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white px-2 py-1 rounded-lg shadow-sm space-x-1">
+                        <img src="/static/logo.svg" alt="Google Safe Browsing" class="w-6 h-6">
+                        <span class="text-[10px] leading-tight" style="color: #767676;">
+                        <strong>Google</strong> Safe Browsing<br>
+                        Approved
+                        </span>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu (collapsible) -->
+            <nav id="mobile-menu" class="hidden md:hidden pb-4">
+                 <a href="/static/en/FAQ.html" class="block py-2 px-3 text-white hover:bg-red-700 rounded">FAQ</a>
+                 <div class="relative">
+                    <button onclick="toggleDropdown(this)" class="w-full text-left flex justify-between items-center py-2 px-3 text-white hover:bg-red-700 rounded">
+                        <span>Help</span>
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="hidden dropdown-menu bg-red-800/50 mt-1 rounded">
+                        <a href="/static/en/android.html" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Android</a>
+                        <a href="/static/en/iphone.html" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">iPhone</a>
+                        <a href="/static/en/pc.html" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">PC</a>
+                    </div>
+                 </div>
+                 <div class="relative">
+                    <button onclick="toggleDropdown(this)" class="w-full text-left flex justify-between items-center py-2 px-3 text-white hover:bg-red-700 rounded">
+                        <span><i class="fas fa-globe mr-1"></i> English</span>
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="hidden dropdown-menu bg-red-800/50 mt-1 rounded max-h-40 overflow-y-auto">
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">English</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">中文 (Chinese)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Español (Spanish)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">українська (Ukrainian)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">हिन्दी (Hindi)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">العربية (Arabic)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Português (Portuguese)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">বাংলা (Bengali)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Русский (Russian)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">日本語 (Japanese)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Punjabi</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Deutsch (German)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Javanese</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Français (French)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Telugu</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Marathi</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Türkçe (Turkish)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Tamil</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Urdu</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Italiano (Italian)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">한국어 (Korean)</a>
+                        <a href="#" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Nederlands (Dutch)</a>
+                    </div>
+                </div>
+                <div class="flex justify-center pt-4">
+                    <div class="flex items-center bg-white px-2 py-1 rounded-lg shadow-sm space-x-1">
+                        <img src="/static/logo.svg" alt="Google Safe Browsing" class="w-6 h-6">
+                        <span class="text-[10px] leading-tight" style="color: #767676;">
+                        <strong>Google</strong> Safe Browsing<br>
+                        Approved
+                        </span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>

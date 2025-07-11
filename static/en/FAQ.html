@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best and Safest YouTube Video Downloader - Fast & Free | SafeYTDownloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://safeytdownloader.com/" />
+    <meta property="og:title" content="Free YouTube Video Downloader | SafeYTDownloader">
+    <meta property="og:description"
+        content="Download YouTube videos fast and safely as MP4 or MP3. No ads, no signup. Works on all devices.">
+    <meta property="og:url" content="https://safeytdownloader.com/">
+    <meta property="og:image" content="https://safeytdownloader.com/static/og-thumbnail.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free YouTube Video Downloader | SafeYTDownloader">
+    <meta name="twitter:description" content="Fast and secure YouTube MP4/MP3 downloads. No ads, no signups.">
+    <meta name="twitter:image" content="https://safeytdownloader.com/static/og-thumbnail.jpg">
+
+    <style>
+        /* Custom CSS for animations and sticky elements */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        .floating-ad {
+            position: fixed;
+            top: 90px;
+            /* Add spacing below the sticky header */
+            transform: none;
+            /* Remove vertical centering */
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        /* Side floating ads */
+        .floating-ad {
+            position: fixed;
+            top: 64px;
+            /* adjust to your header height */
+            bottom: 0px;
+            /* adjust to your footer height */
+            z-index: 100;
+            width: 160px;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            visibility: hidden;
+            /* height: 100vh; -- remove this */
+        }
+
+        .floating-ad.left {
+            left: 0;
+            border-right: 1px solid #e5e7eb;
+            visibility: hidden;
+        }
+
+        .floating-ad.right {
+            right: 0;
+            border-left: 1px solid #e5e7eb;
+            visibility: hidden;
+        }
+
+
+        /* Hide side ads on screens 1024px or less */
+        @media (max-width: 1024px) {
+            .floating-ad {
+                display: none;
+            }
+
+            section {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+
+        /* Bottom ad banner - show on 1024px or less */
+        .bottom-ad-mobile {
+            display: none;
+        }
+
+        @media (max-width: 1140px) {
+            .bottom-ad-mobile {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 8px;
+                box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+                z-index: 110;
+                text-align: center;
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+
+            .bottom-ad-mobile img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 0.25rem;
+            }
+        }
+
+
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+        }
+
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .video-card {
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-ad {
+            position: fixed;
+            z-index: 100;
+            /* other styles */
+        }
+
+        footer {
+            position: relative;
+            z-index: 1100;
+            /* other footer styles */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SafeYTDownloader",
+        "url": "https://safeytdownloader.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://safeytdownloader.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+        }
+    </script>
+
+</head>
+
+<body class="bg-gray-50">
+
+    <div class="floating-ad left">
+        <div class="h-full flex flex-col">
+
+            <div class="flex-1 flex items-center justify-center p-2">
+                <img src="https://via.placeholder.com/160x600?text=Ad+Space" alt="Advertisement"
+                    class="w-full h-auto rounded">
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-ad right">
+        <div class="h-full flex flex-col">
+
+            <div class="flex-1 flex items-center justify-center p-2">
+                <img src="https://via.placeholder.com/160x600?text=Ad+Space" alt="Advertisement"
+                    class="w-full h-auto rounded">
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="bottom-ad-mobile md:hidden">
+        <div class="text-xs text-gray-500 mb-1">Advertisement</div>
+        <img src="https://via.placeholder.com/320x50?text=Mobile+Ad" alt="Advertisement">
+    </div> -->
+
+
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <div class="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                        <i class="fab fa-youtube text-white text-4xl sm:text-5xl"></i>
+                        <div class="absolute w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full"></div>
+                        <i class="fas fa-download absolute text-red-600 text-xs sm:text-sm"></i>
+                    </div>
+                    <h1 class="text-lg sm:text-2xl font-bold">SafeYTDownloader</h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="block py-2 px-3 text-white hover:bg-red-700 rounded">Home</a>
+                    <div class="relative">
+                        <button onclick="toggleDropdown(this)" class="text-white hover:text-gray-200 transition flex items-center">
+                            Help <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute hidden dropdown-menu bg-white text-gray-800 rounded shadow-lg mt-2 w-40 z-20 right-0">
+                            <a href="/static/en/android.html" class="block px-4 py-2 hover:bg-gray-100">Android</a>
+                            <a href="/static/en/iphone.html" class="block px-4 py-2 hover:bg-gray-100">iPhone</a>
+                            <a href="/static/en/pc.html" class="block px-4 py-2 hover:bg-gray-100">PC</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center bg-white px-2 py-1 rounded-lg shadow-sm space-x-1">
+                        <img src="/static/logo.svg" alt="Google Safe Browsing" class="w-6 h-6">
+                        <span class="text-[10px] leading-tight" style="color: #767676;">
+                        <strong>Google</strong> Safe Browsing<br>
+                        Approved
+                        </span>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu (collapsible) -->
+            <nav id="mobile-menu" class="hidden md:hidden pb-4">
+                 <a href="/" class="block py-2 px-3 text-white hover:bg-red-700 rounded">Home</a>
+                 <div class="relative">
+                    <button onclick="toggleDropdown(this)" class="w-full text-left flex justify-between items-center py-2 px-3 text-white hover:bg-red-700 rounded">
+                        <span>Help</span>
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="hidden dropdown-menu bg-red-800/50 mt-1 rounded">
+                        <a href="/static/en/android.html" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">Android</a>
+                        <a href="/static/en/iphone.html" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">iPhone</a>
+                        <a href="/static/en/pc.html" class="block py-2 px-6 text-sm text-white hover:bg-red-700 rounded">PC</a>
+                    </div>
+                 </div>
+                 
+                <div class="flex justify-center pt-4">
+                    <div class="flex items-center bg-white px-2 py-1 rounded-lg shadow-sm space-x-1">
+                        <img src="/static/logo.svg" alt="Google Safe Browsing" class="w-6 h-6">
+                        <span class="text-[10px] leading-tight" style="color: #767676;">
+                        <strong>Google</strong> Safe Browsing<br>
+                        Approved
+                        </span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+    <section id="faq" class="py-16 bg-white" x-data="{
+        activeAccordion: '',
+        searchTerm: '',
+        categories: {
+            'General': {
+                id: 'general',
+                icon: 'fas fa-info-circle',
+                questions: [
+                    { q: 'Is SafeYTDownloader free to use, and are there any hidden charges?', a: 'Yes, our service is completely free to use, and there are no hidden charges or subscriptions required. You can download as many videos as you want without any cost.' },
+                    { q: 'Do I need to create an account or log in to use SafeYTDownloader?', a: 'No, you do not need to create an account or log in. Our service is designed for quick and easy access without any registration process. Simply paste the video URL and download.' },
+                    { q: 'What exactly is a YouTube video downloader, and how does it work?', a: 'A YouTube video downloader is a tool that allows you to save YouTube videos to your device for offline viewing. It works by fetching the video from YouTube\'s servers and providing you with downloadable links in various formats and resolutions.' },
+                    { q: 'On which types of devices can I use SafeYTDownloader to download videos?', a: 'Our website is designed to be compatible with a wide range of devices, including desktops (Windows, macOS, Linux), laptops, smartphones (iOS and Android), and tablets. You only need a web browser to access and use our service.' },
+                    { q: 'Are there any restrictions on the number of videos I can download using SafeYTDownloader?', a: 'No, there are currently no limitations on the number of videos you can download. Feel free to use our service as much as you need to save your favorite YouTube content.' }
+                ]
+            },
+            'How-To': {
+                id: 'how-to',
+                icon: 'fas fa-question-circle',
+                questions: [
+                    { q: 'What are the exact steps to download a YouTube video using SafeYTDownloader?', a: 'To download a YouTube video, first, copy the URL (web address) of the video from your browser\'s address bar or by using the \'Share\' button on YouTube and copying the link. Then, paste this URL into the search bar on our SafeYTDownloader website and click the download button. You will then be presented with a list of available formats and resolutions to download.' },
+                    
+                    
+                    { q: 'I am using an Android device. How do I download YouTube videos using SafeYTDownloader on my phone or tablet?', a: 'The process for downloading videos on an Android device is the same as on a desktop. Open your preferred web browser (like Chrome, Firefox, etc.) on your Android device, go to the SafeYTDownloader website, paste the YouTube video URL in the search bar, and follow the on-screen instructions to choose your format and download the video.' },
+                    { q: 'I have an iPhone or iPad. What is the process for downloading videos using SafeYTDownloader on my iOS device?', a: 'Due to certain restrictions by Apple, the direct download and saving of files might be limited within the Safari browser. After you use SafeYTDownloader to get a download link, you might need to use a third-party file manager app (available on the App Store) that has a built-in browser or the ability to download and save files from external links. Alternatively, you can download the video to a computer and then transfer it to your iOS device.' },
+                    { q: 'Where can I find the URL of a YouTube video that I want to download?', a: 'Finding the URL of a YouTube video is easy. Open the video on YouTube, and the URL will be displayed in the address bar at the top of your browser. You can copy it from there. Additionally, below the video on YouTube, there is a \'Share\' button. Clicking this will usually provide you with a shareable link, which is the URL you need to copy.' }
+                ]
+            },
+            'Troubleshooting': {
+                id: 'troubleshooting',
+                icon: 'fas fa-exclamation-triangle',
+                questions: [
+                    { q: 'I clicked the download button, but the download is not starting. What could be the reason?', a: 'If your download is not starting, first, check your internet connection to ensure it is stable. Also, double-check that you have pasted the correct and full YouTube video URL. If the issue persists, try using a different web browser, as sometimes browser settings or extensions can interfere with the download process. If it still doesn\'t work, the video might be private or have restrictions that prevent downloading.' },
+                    { q: 'I received an error message while trying to download a video. What does this mean and what should I do?', a: 'An error message could indicate several issues. It might be due to a temporary problem with our service, a problem with the YouTube video itself (e.g., it\'s private, age-restricted, or region-blocked), or an issue with your internet connection. Try refreshing the page and attempting the download again. If the error continues, ensure the video is public and accessible in your region. If the problem persists over time, please contact our support with the specific error message.' },
+                    { q: 'The video I downloaded plays without sound. Why is there no audio?', a: 'In some cases, especially with high-resolution videos on YouTube, the audio and video streams might be separate. Our downloader attempts to merge them, but occasionally, this process might not be fully successful. Try downloading the video in a different format or a slightly lower resolution, as these versions often have integrated audio and video streams. Ensure your media player supports the audio codec of the downloaded file.' },
+                    { q: 'The download speed is very slow. Is there anything I can do to speed it up?', a: 'Download speed can be influenced by several factors, including the speed of your internet connection, the current load on our servers, and the size of the video file. Ensure no other large downloads or streaming activities are using your bandwidth. You can also try again at a different time, as server load can vary. Unfortunately, we cannot directly control your internet service provider\'s speeds.' },
+                    { q: 'I downloaded a file, but my computer or phone says it cannot play the file. What should I do?', a: 'This usually happens if your device does not have a media player that supports the format of the video you downloaded. For example, if you downloaded a WebM file and your default player only supports MP4, it won\'t play. We recommend installing a versatile media player like VLC Media Player (available for free on most platforms), which supports a wide range of video and audio formats. Also, ensure the file extension matches the actual format you intended to download.' }
+                ]
+            },
+            'Security & Privacy': {
+                id: 'security-privacy',
+                icon: 'fas fa-shield-alt',
+                questions: [
+                    { q: 'Is SafeYTDownloader a safe website to use, and will it harm my device with viruses or malware?', a: 'Yes, SafeYTDownloader is designed to be a safe website to use. We utilize an SSL certificate for secure connections, and we are approved by Google Safe Browse, indicating a level of security and trustworthiness. We do not host or distribute any viruses or malware. The download links we provide are directly from YouTube\'s content delivery network.' },
+                    { q: 'Does SafeYTDownloader store the videos that I download, or keep any record of my downloaded content?', a: 'No, SafeYTDownloader does not store any of the videos that you download. All processing and downloading happen in real-time. Once you close the page or finish your session, no record of your downloads is kept on our servers. We act merely as a facilitator to help you download public YouTube videos.' },
+                    { q: 'Does SafeYTDownloader track my download history, IP address, or use cookies to collect personal information?', a: 'We highly value your privacy. SafeYTDownloader does not track your download history, nor do we log IP addresses of our users. We may use cookies for basic website functionality and to improve user experience, but not to collect personally identifiable information. Our primary focus is to provide a safe and anonymous service.' },
+                    { q: 'Are the downloaded files from SafeYTDownloader free of viruses and other harmful software?', a: 'Yes, the files you download through SafeYTDownloader are the same files that are hosted on YouTube\'s servers. We do not modify these files in any way. Therefore, if the original video on YouTube is clean, the downloaded file will also be clean. We always recommend having reputable antivirus software on your device as a general security measure.' }
+                ]
+            },
+            'Legal': {
+                id: 'legal',
+                icon: 'fas fa-balance-scale',
+                questions: [
+                    { q: 'Is it legal to download videos from YouTube using a third-party downloader like SafeYTDownloader?', a: 'Downloading videos from YouTube without the copyright holder\'s permission may infringe on copyright laws and violate YouTube\'s Terms of Service. It is generally considered acceptable to download videos that are in the public domain or for which you have explicit permission to download. We advise users to respect copyright and only download videos for personal, non-commercial use or when they have the necessary rights.' },
+                    { q: 'Am I allowed to download copyrighted videos for personal offline viewing?', a: 'While downloading copyrighted material for personal offline viewing might seem harmless, it could still be considered a violation of copyright law in many jurisdictions and is against YouTube\'s Terms of Service. It is important to be aware of and respect the rights of copyright holders. Downloading should typically be limited to content that is either your own, in the public domain, or where permission has been granted.' },
+                    { q: 'What are the potential risks or consequences of downloading YouTube videos without permission?', a: 'Downloading copyrighted YouTube videos without permission can lead to legal consequences, although these are more likely to affect those who distribute the content rather than individual downloaders. Additionally, some downloaders might contain security risks. Using a reputable service like SafeYTDownloader aims to mitigate the security risks on our end, but it\'s crucial to ensure you have the right to download the content to avoid legal issues related to copyright infringement.' },
+                    { q: 'Is SafeYTDownloader officially affiliated with or endorsed by YouTube or Google?', a: 'No, SafeYTDownloader is an independent service and is not affiliated with, endorsed, or sponsored by YouTube or Google Inc. We provide a tool that allows users to download public videos from YouTube based on the provided URL. We operate independently and are not responsible for the content available on YouTube or how users choose to use our service.' }
+                ]
+            }
+        },
+        get filteredCategories() {
+            if (this.searchTerm === '') {
+                return this.categories;
+            }
+            const result = {};
+            for (const categoryName in this.categories) {
+                const filteredQuestions = this.categories[categoryName].questions.filter(q =>
+                    q.q.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                    q.a.toLowerCase().includes(this.searchTerm.toLowerCase())
+                );
+                if (filteredQuestions.length > 0) {
+                    result[categoryName] = { ...this.categories[categoryName], questions: filteredQuestions };
+                }
+            }
+            return result;
+        }
+    }">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Frequently Asked Questions</h2>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <aside class="w-full md:w-1/4">
+                    <div class="sticky top-24">
+                        <h3 class="text-xl font-bold mb-4 text-gray-700">Categories</h3>
+                        <ul class="space-y-2">
+                            <template x-for="(category, name) in categories" :key="name">
+                                <li>
+                                    <a :href="'#' + category.id"
+                                        @click.prevent="document.getElementById(category.id).scrollIntoView({ behavior: 'smooth' });"
+                                        class="flex items-center px-4 py-2 text-gray-600 hover:bg-red-100 hover:text-red-700 rounded-lg transition-colors">
+                                        <i :class="category.icon" class="mr-3 text-red-500"></i>
+                                        <span x-text="name"></span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </aside>
+
+                <main class="w-full md:w-3/4">
+                    <div class="mb-8">
+                        <div class="relative">
+                            <input type="text" x-model="searchTerm" placeholder="Search questions..."
+                                class="w-full p-4 pl-10 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500">
+                            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <template x-for="(category, name) in filteredCategories" :key="name">
+                            <div :id="category.id">
+                                <h3 class="flex items-center text-2xl font-bold mb-4 text-gray-800 border-b-2 border-red-500 pb-2">
+                                    <i :class="category.icon" class="mr-3 text-red-500"></i>
+                                    <span x-text="name"></span>
+                                </h3>
+                                <div class="space-y-4">
+                                    <template x-for="(item, index) in category.questions" :key="index">
+                                        <div class="bg-white p-4 rounded-xl shadow-md transition-all duration-300">
+                                            <button
+                                                @click="activeAccordion = (activeAccordion === category.id + index) ? '' : category.id + index"
+                                                class="flex justify-between items-center w-full text-left">
+                                                <h4 class="font-semibold text-lg text-gray-800" x-text="item.q"></h4>
+                                                <i class="fas fa-chevron-down transform transition-transform text-red-500"
+                                                    :class="{ 'rotate-180': activeAccordion === category.id + index }"></i>
+                                            </button>
+                                            <div x-show="activeAccordion === category.id + index" x-cloak x-transition
+                                                class="mt-3 text-gray-600 prose max-w-none">
+                                                <p x-text="item.a"></p>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                        <div x-show="Object.keys(filteredCategories).length === 0" x-cloak
+                            class="text-center text-gray-500 py-8">
+                            <p class="text-xl">No questions found for "<span x-text="searchTerm"
+                                    class="font-semibold"></span>".</p>
+                            <p>Try searching for a different keyword.</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Download YouTube Videos?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Start downloading your favorite videos now in just a few clicks!
+            </p>
+
+            <div class="max-w-xl mx-auto text-center">
+                <a href="/"
+                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+                    <i class="fas fa-download mr-2"></i> Download Now
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 flex justify-center md:justify-start items-center">
+                        <i class="fab fa-youtube text-red-600 mr-2"></i> SafeYTDownloader
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        Download YouTube videos in MP4 format quickly and safely. No ads. No fuss.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Navigation</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="/static/en/FAQ.html" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Legal</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li>
+                            <a href="javascript:void(0);" onclick="showTermsModal()"
+                                class="text-gray-400 hover:text-white transition">
+                                Terms of Use
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="showPrivacyModal()"
+                                class="text-gray-400 hover:text-white transition">
+                                Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="mt-10 border-t border-gray-800 pt-6 text-gray-500 text-sm text-center">
+                <p>© 2025 SafeYTDownloader.com. All rights reserved.</p>
+                <p class="mt-2">This tool is not affiliated with YouTube or Google Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <div class="bottom-ad-mobile">
+        <div class="text-xs text-gray-500 mb-1">Advertisement</div>
+        <img src="https://via.placeholder.com/320x50?text=Mobile+Ad" alt="Advertisement">
+    </div> -->
+
+    <script>
+// --- Keep these functions in the global scope for onclick attributes ---
+        function showTermsModal() {
+            document.getElementById('termsModal').classList.remove('hidden');
+        }
+
+        function closeTermsModal() {
+            document.getElementById('termsModal').classList.add('hidden');
+        }
+
+        function showPrivacyModal() {
+            document.getElementById('privacyModal').classList.remove('hidden');
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.add('hidden');
+        }
+        
+        function toggleDropdown(button) {
+            const dropdown = button.nextElementSibling;
+            const isHidden = dropdown.classList.contains('hidden');
+            
+            // This is a simple way to close other dropdowns, works for this component
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== dropdown) {
+                    menu.classList.add('hidden');
+                }
+            });
+            
+            dropdown.classList.toggle('hidden');
+        }
+
+        function closeImageModal() {
+            const imageModal = document.getElementById('imageModal');
+            if (imageModal) {
+                imageModal.classList.add('hidden');
+            }
+        }
+
+        // --- Setup event listeners after the DOM is fully loaded ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent the global click listener from closing it immediately
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Global click listener to close dropdowns when clicking outside
+            document.addEventListener('click', function(event) {
+                // Close dropdowns if click is outside a relative container (their parent)
+                if (!event.target.closest('.relative')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.add('hidden');
+                    });
+                }
+                // Close mobile menu if click is outside the header
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    if (!event.target.closest('header')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Image Modal Logic
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            document.querySelectorAll('.guide-image').forEach(img => {
+                img.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Prevents the modal's own click listener from firing
+                    if (imageModal && modalImage) {
+                        modalImage.src = this.src;
+                        imageModal.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+    
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4508220778820028"
+        crossorigin="anonymous"></script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4508220778820028"
+        crossorigin="anonymous"></script>
+
+    <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-lg w-full p-6 shadow-lg text-gray-800">
+            <h2 class="text-xl font-bold mb-4">Privacy Policy</h2>
+            <p class="mb-4 text-sm">
+                We respect your privacy. SafeYTDownloader does not collect or store any personal information.
+                All video processing is done securely and anonymously. No IP addresses, cookies, or history are stored.
+            </p>
+            <div class="flex justify-end space-x-3">
+                <button onclick="closePrivacyModal()"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-lg w-full p-6 shadow-lg text-gray-800">
+            <h2 class="text-xl font-bold mb-4">Terms of Use</h2>
+            <p class="mb-4 text-sm">
+                By using this service, you agree that you have the legal right to download the video content.
+                This tool is intended for personal use only. Downloading copyrighted content from YouTube may violate
+                YouTube’s Terms of Service and applicable laws. SafeYTDownloader does not host any content and is not
+                affiliated with YouTube.
+            </p>
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeTermsModal()"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                    Cancel
+                </button>
+                <button onclick="acceptTerms()"
+                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    I Agree
+                </button>
+            </div>
+        </div>
+    </div>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1R30JCL0CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1R30JCL0CH');
+</script>
+</body>
+
+</html>
